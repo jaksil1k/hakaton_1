@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wallet analysis</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+</head>
+<body>
+{{if eq (len .) 0}}
+Nothing to see here
+{{end}}
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Tx Hash</th>
+        <th>Amount</th>
+        <th>Receiver</th>
+    </tr>
+{{range .}}
+    <tr>
+        <th>{{.Datetime}}</th>
+        <th>{{.TxHash}}</th>
+        <th>{{.Amount}} {{.Symbol}}</th>
+        <th>{{.Receiver}}</th>
+    </tr>
+{{end}}
+</table>
+</body>
+</html>
